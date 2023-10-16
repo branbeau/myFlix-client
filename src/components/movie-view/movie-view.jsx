@@ -10,7 +10,7 @@ export const MovieView = ({ movie }) => {
       </div>
       <div>
         <span>Director: </span>
-        <span>{movie.author}</span>
+        <span>{movie.director}</span>
       </div>
     </div>
   );
