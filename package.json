@@ -17,10 +17,12 @@
   "homepage": "https://github.com/branbeau/myFlix-client#readme",
   "description": "",
   "dependencies": {
+    "@babel/preset-env": "^7.23.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.2",
     "@parcel/transformer-sass": "^2.9.3",
     "process": "^0.11.10"
   }
