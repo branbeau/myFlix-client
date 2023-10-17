@@ -26476,34 +26476,38 @@ var MainView = exports.MainView = function MainView() {
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"ad8a4529a4d879e6":"21dqq","58bb56286a3b2369":"bwuIu","8116f3426bb1dd75":"ggaUx","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2BM2F"}],"bwuIu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$67b2.prelude(module);
+
+try {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.MovieCard = void 0;
+var _react = _interopRequireDefault(require("8a8bdad2ab54905a"));
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        "default": obj
+    };
+}
 var MovieCard = exports.MovieCard = function MovieCard(_ref) {
     var movie = _ref.movie, onBackClick = _ref.onBackClick;
-    return /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("img", {
+    return /*#__PURE__*/ _react["default"].createElement("div", null, /*#__PURE__*/ _react["default"].createElement("div", null, /*#__PURE__*/ _react["default"].createElement("img", {
         src: movie.image
-    })), /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", null, "Title: "), /*#__PURE__*/ React.createElement("span", null, movie.title)), /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", null, "Director: "), /*#__PURE__*/ React.createElement("span", null, movie.director)), /*#__PURE__*/ React.createElement("button", {
+    })), /*#__PURE__*/ _react["default"].createElement("div", null, /*#__PURE__*/ _react["default"].createElement("span", null, "Title: "), /*#__PURE__*/ _react["default"].createElement("span", null, movie.title)), /*#__PURE__*/ _react["default"].createElement("div", null, /*#__PURE__*/ _react["default"].createElement("span", null, "Director: "), /*#__PURE__*/ _react["default"].createElement("span", null, movie.director)), /*#__PURE__*/ _react["default"].createElement("button", {
         onClick: onBackClick
     }, "Back"));
 };
 
-},{}],"ggaUx":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.MovieView = void 0;
-var MovieView = exports.MovieView = function MovieView(_ref) {
-    var movie = _ref.movie;
-    return /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("img", {
-        src: movie.image
-    })), /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", null, "Title: "), /*#__PURE__*/ React.createElement("span", null, movie.title)), /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", null, "Director: "), /*#__PURE__*/ React.createElement("span", null, movie.director)));
-};
-
-},{}],"2BM2F":[function(require,module,exports) {
+  $parcel$ReactRefreshHelpers$67b2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"8a8bdad2ab54905a":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2BM2F"}],"2BM2F":[function(require,module,exports) {
 "use strict";
 var Refresh = require("5d9c5f27982f8f05");
 function debounce(func, delay) {
@@ -26641,6 +26645,19 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"5d9c5f27982f8f05":"bqisB"}],"lJZlQ":[function() {},{}]},["dAHej","5MMeH","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"5d9c5f27982f8f05":"bqisB"}],"ggaUx":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.MovieView = void 0;
+var MovieView = exports.MovieView = function MovieView(_ref) {
+    var movie = _ref.movie;
+    return /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("img", {
+        src: movie.image
+    })), /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", null, "Title: "), /*#__PURE__*/ React.createElement("span", null, movie.title)), /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", null, "Director: "), /*#__PURE__*/ React.createElement("span", null, movie.director)));
+};
+
+},{}],"lJZlQ":[function() {},{}]},["dAHej","5MMeH","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
