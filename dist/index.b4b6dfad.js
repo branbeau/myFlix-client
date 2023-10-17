@@ -2939,15 +2939,15 @@ process.umask = function() {
 var _client = require("a4adc4ee8f8cafc7");
 var _mainView = require("ba8a247a0fef21fe");
 require("6aee84b8a70e9397");
-var App = function App() {
+var MyFlixApplication = function MyFlixApplication() {
     return /*#__PURE__*/ React.createElement(_mainView.MainView, null);
 };
-_c = App;
+_c = MyFlixApplication;
 var container = document.querySelector("#root");
 var root = (0, _client.createRoot)(container);
-root.render(/*#__PURE__*/ React.createElement(App, null));
+root.render(/*#__PURE__*/ React.createElement(MyFlixApplication, null));
 var _c;
-$RefreshReg$(_c, "App");
+$RefreshReg$(_c, "MyFlixApplication");
 
 },{"a4adc4ee8f8cafc7":"lOjBx","ba8a247a0fef21fe":"4gflv","6aee84b8a70e9397":"lJZlQ"}],"lOjBx":[function(require,module,exports) {
 "use strict";

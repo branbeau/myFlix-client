@@ -3,7 +3,7 @@ import { MainView } from "./components/main-view/main-view";
 
 import "./index.scss";
 
-const App = () => {
+const MyFlixApplication = () => {
  return <MainView />;
 };
 
