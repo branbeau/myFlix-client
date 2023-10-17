@@ -26461,13 +26461,11 @@ var MainView = exports.MainView = function MainView() {
         }
     });
     if (movies.length === 0) return /*#__PURE__*/ _react["default"].createElement("div", null, "The list is empty!");
-    return /*#__PURE__*/ _react["default"].createElement("div", null, movies.map(function(movies) {
+    return /*#__PURE__*/ _react["default"].createElement("div", null, movies.map(function(movie) {
         return /*#__PURE__*/ _react["default"].createElement(_movieCard.MovieCard, {
             key: movie.id,
             movie: movie,
-            onMovieClick: function onMovieClick(newSelectedMovie) {
-                setSelectedMovie(newSelectedMovie);
-            }
+            onMovieClick: function onMovieClick(newSelectedMovie) {}
         });
     }));
 };

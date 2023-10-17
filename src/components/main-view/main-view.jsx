@@ -71,9 +71,9 @@ export const MainView = () => {
           key={movie.id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
           }}
-        />
-      ))}
-    </div>
-  );
+          />
+        ))}
+      </div>
+    );
+  }
