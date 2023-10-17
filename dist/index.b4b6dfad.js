@@ -2935,21 +2935,38 @@ process.umask = function() {
 };
 
 },{}],"d8Dch":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$98a3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$98a3.prelude(module);
+
+try {
 "use strict";
+var _react = _interopRequireDefault(require("845adb8628c16dcb"));
 var _client = require("a4adc4ee8f8cafc7");
 var _mainView = require("ba8a247a0fef21fe");
 require("6aee84b8a70e9397");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        "default": obj
+    };
+}
 var MyFlixApplication = function MyFlixApplication() {
-    return /*#__PURE__*/ React.createElement(_mainView.MainView, null);
+    return /*#__PURE__*/ _react["default"].createElement(_mainView.MainView, null);
 };
 _c = MyFlixApplication;
 var container = document.querySelector("#root");
 var root = (0, _client.createRoot)(container);
-root.render(/*#__PURE__*/ React.createElement(MyFlixApplication, null));
+root.render(/*#__PURE__*/ _react["default"].createElement(MyFlixApplication, null));
 var _c;
 $RefreshReg$(_c, "MyFlixApplication");
 
-},{"a4adc4ee8f8cafc7":"lOjBx","ba8a247a0fef21fe":"4gflv","6aee84b8a70e9397":"lJZlQ"}],"lOjBx":[function(require,module,exports) {
+  $parcel$ReactRefreshHelpers$98a3.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"a4adc4ee8f8cafc7":"lOjBx","ba8a247a0fef21fe":"4gflv","6aee84b8a70e9397":"lJZlQ","845adb8628c16dcb":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2BM2F"}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("aaccff5d309d9239");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
