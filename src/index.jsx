@@ -5,6 +5,7 @@ import "./index.scss";
 
 const MyFlixApplication = () => {
  return <MainView />;
+ );
 };
 
 const container = document.querySelector("#root");
