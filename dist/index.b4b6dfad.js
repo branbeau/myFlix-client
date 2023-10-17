@@ -26324,13 +26324,44 @@ $parcel$ReactRefreshHelpers$f7a6.prelude(module);
 
 try {
 "use strict";
+function _typeof(o) {
+    "@babel/helpers - typeof";
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+        return typeof o;
+    } : function(o) {
+        return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+    }, _typeof(o);
+}
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.MainView = void 0;
-var _react = require("ad8a4529a4d879e6");
+var _react = _interopRequireWildcard(require("ad8a4529a4d879e6"));
 var _movieCard = require("58bb56286a3b2369");
 var _movieView = require("8116f3426bb1dd75");
+function _getRequireWildcardCache(e) {
+    if ("function" != typeof WeakMap) return null;
+    var r = new WeakMap(), t = new WeakMap();
+    return (_getRequireWildcardCache = function _getRequireWildcardCache(e) {
+        return e ? t : r;
+    })(e);
+}
+function _interopRequireWildcard(e, r) {
+    if (!r && e && e.__esModule) return e;
+    if (null === e || "object" != _typeof(e) && "function" != typeof e) return {
+        "default": e
+    };
+    var t = _getRequireWildcardCache(r);
+    if (t && t.has(e)) return t.get(e);
+    var n = {
+        __proto__: null
+    }, a = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var u in e)if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) {
+        var i = a ? Object.getOwnPropertyDescriptor(e, u) : null;
+        i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u];
+    }
+    return n["default"] = e, t && t.set(e, n), n;
+}
 function _slicedToArray(arr, i) {
     return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
@@ -26423,15 +26454,15 @@ var MainView = exports.MainView = function MainView() {
         }
     ]), _useState2 = _slicedToArray(_useState, 2), movies = _useState2[0], setMovies = _useState2[1];
     var _useState3 = (0, _react.useState)(null), _useState4 = _slicedToArray(_useState3, 2), selectedmovie = _useState4[0], setSelectedmovie = _useState4[1];
-    if (selectedmovie) return /*#__PURE__*/ React.createElement(_movieView.MovieView, {
+    if (selectedmovie) return /*#__PURE__*/ _react["default"].createElement(_movieView.MovieView, {
         movie: selectedMovie,
         onBackClick: function onBackClick() {
             return setSelectedMovie(null);
         }
     });
-    if (movies.length === 0) return /*#__PURE__*/ React.createElement("div", null, "The list is empty!");
-    return /*#__PURE__*/ React.createElement("div", null, movies.map(function(movies) {
-        return /*#__PURE__*/ React.createElement(_movieCard.MovieCard, {
+    if (movies.length === 0) return /*#__PURE__*/ _react["default"].createElement("div", null, "The list is empty!");
+    return /*#__PURE__*/ _react["default"].createElement("div", null, movies.map(function(movies) {
+        return /*#__PURE__*/ _react["default"].createElement(_movieCard.MovieCard, {
             key: movie.id,
             movie: movie,
             onMovieClick: function onMovieClick(newSelectedMovie) {
