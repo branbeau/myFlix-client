@@ -1,13 +1,17 @@
-import React from 'react';
-import { useState } from "react";
+import React, { useState } from 'react';
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-        title: "Coming to America",
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const onBackClick = () => {
+    setSelectedMovie(null);
+  };
+
+  const movie = {
+    id: 1,
+    title: "Coming to America",
         description: "An extremely pampered African prince travels to Queens, New York, and goes undercover to find a wife that he can respect for her intelligence and strong will.",
         genre:{
           name: "Romantic Comedy",
@@ -54,9 +58,9 @@ export const MainView = () => {
 
   const [selectedmovie, setSelectedmovie] = useState(null);
 
-  if (selectedmovie) {
+  if (selectedMovie) {
     return (
-      <MovieView movie={selectedmovie} onBackClick={() => setSelectedMovie(null)} />
+      <MovieView movie={selectedMovie} onBackClick={onBackClick} />
     );
   }
 
@@ -78,3 +82,5 @@ export const MainView = () => {
       </div>
     );
   }
+
+export default MainView;
