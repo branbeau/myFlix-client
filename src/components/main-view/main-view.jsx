@@ -50,7 +50,7 @@ export const MainView = () => {
         imagePath:"https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
       }
     ]);
-    
+
     const [selectedmovie, setSelectedmovie] = useState(null);
 
     if (selectedmovie) {
@@ -59,7 +59,7 @@ export const MainView = () => {
       );
     }
   
-    if (movies.length === 0) {
+    if (selectedMovie.length === 0) {
       return <div>The list is empty!</div>;
     }
     
