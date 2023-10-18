@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const MovieCard= ({ movie, onBackClick }) => {
+export const MovieCard= ({ movie, onMovieClick }) => {
   return (
     <div>
       <div>
-        <img src={movie.image} />
+        <img src={movie.imagepath} />
       </div>
       <div>
         <span>Title: </span>
@@ -12,9 +12,9 @@ export const MovieCard= ({ movie, onBackClick }) => {
       </div>
       <div>
         <span>Director: </span>
-        <span>{movie.director}</span>
+        <span>{movie.director.name}</span>
       </div>
-      <button onClick={onBackClick}>Back</button>
+      <button onClick={onMovieClick}>View movie</button>
     </div>
   );
 };
