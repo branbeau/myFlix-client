@@ -27359,7 +27359,6 @@ const MainView = ()=>{
             imagePath: "https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
         }
     ]);
-    const [selectedmovie, setSelectedmovie] = (0, _react.useState)(null);
     const onBackClick = ()=>{
         setSelectedMovie(null);
     };
@@ -27368,7 +27367,7 @@ const MainView = ()=>{
         onBackClick: onBackClick
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 63,
+        lineNumber: 61,
         columnNumber: 7
     }, undefined);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
@@ -27380,14 +27379,14 @@ const MainView = ()=>{
         onBackClick: onBackClick
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 73,
+        lineNumber: 71,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 78,
+        lineNumber: 76,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27398,16 +27397,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 84,
+                lineNumber: 82,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 82,
+        lineNumber: 80,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "M3U8+nPClxjLVscKVwCOnRBl64g=");
+_s(MainView, "CpdRo0EWcHcPrZC265hg+mr3AlU=");
 _c = MainView;
 exports.default = MainView;
 var _c;
