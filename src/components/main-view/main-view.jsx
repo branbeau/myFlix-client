@@ -48,9 +48,9 @@ export const MainView = () => {
           birthYear: 1954
         },
         imagePath:"https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
-      },
+      }
     ]);
-
+    
     const [selectedmovie, setSelectedmovie] = useState(null);
 
     if (selectedmovie) {
