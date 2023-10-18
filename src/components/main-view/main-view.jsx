@@ -51,44 +51,29 @@ export const MainView = () => {
       },
     ]);
 
-  const onBackClick = () => {
-    setSelectedMovie(null);
-  };
+    const [selectedmovie, setSelectedmovie] = useState(null);
 
-
-  if (selectedMovie) {
-    return (
-      <MovieView movie={selectedMovie} onBackClick={onBackClick} />
-    );
-  }const [selectedMovie, setSelectedMovie] = useState(null);
-
-  const onBackClick = () => {
-    setSelectedMovie(null);
-  };
+    if (selectedmovie) {
+      return (
+        <MovieView movie={selectedmovie} onBackClick={() => setSelectedMovie(null)} />
+      );
+    }
   
-  if (selectedMovie) {
+    if (movies.length === 0) {
+      return <div>The list is empty!</div>;
+    }
+    
     return (
-      <MovieView movie={selectedMovie} onBackClick={onBackClick} />
-    );
-  }
-
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-  
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          onMovieClick={() => {
-            setSelectedmovie(movie)
-          }}
-          />
-        ))}
-      </div>
-    );
-  }
-
-export default MainView;
+      <div>
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            onMovieClick={() => {
+              setSelectedmovie(movie)
+            }}
+            />
+          ))}
+        </div>
+      );
+    }

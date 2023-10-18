@@ -27359,35 +27359,21 @@ const MainView = ()=>{
             imagePath: "https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
         }
     ]);
-    const onBackClick = ()=>{
-        setSelectedMovie(null);
-    };
-    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-        movie: selectedMovie,
-        onBackClick: onBackClick
+    const [selectedmovie, setSelectedmovie] = (0, _react.useState)(null);
+    if (selectedmovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedmovie,
+        onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 61,
-        columnNumber: 7
-    }, undefined);
-    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    const onBackClick = ()=>{
-        setSelectedMovie(null);
-    };
-    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-        movie: selectedMovie,
-        onBackClick: onBackClick
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 71,
-        columnNumber: 7
+        lineNumber: 58,
+        columnNumber: 9
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 76,
-        columnNumber: 12
+        lineNumber: 63,
+        columnNumber: 14
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27397,18 +27383,17 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 82,
-                columnNumber: 9
+                lineNumber: 69,
+                columnNumber: 11
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 80,
-        columnNumber: 5
+        lineNumber: 67,
+        columnNumber: 7
     }, undefined);
 };
-_s(MainView, "CpdRo0EWcHcPrZC265hg+mr3AlU=");
+_s(MainView, "41Dr1tKGuACyFGOXvyrUfjYWly8=");
 _c = MainView;
-exports.default = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
 
