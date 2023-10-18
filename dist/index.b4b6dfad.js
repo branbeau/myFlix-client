@@ -27360,19 +27360,34 @@ const MainView = ()=>{
         }
     ]);
     const [selectedmovie, setSelectedmovie] = (0, _react.useState)(null);
+    const onBackClick = ()=>{
+        setSelectedMovie(null);
+    };
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: onBackClick
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 58,
+        lineNumber: 63,
+        columnNumber: 7
+    }, undefined);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    const onBackClick = ()=>{
+        setSelectedMovie(null);
+    };
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedMovie,
+        onBackClick: onBackClick
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 73,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 63,
+        lineNumber: 78,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27383,16 +27398,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 69,
+                lineNumber: 84,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 67,
+        lineNumber: 82,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "41Dr1tKGuACyFGOXvyrUfjYWly8=");
+_s(MainView, "M3U8+nPClxjLVscKVwCOnRBl64g=");
 _c = MainView;
 exports.default = MainView;
 var _c;
