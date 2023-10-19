@@ -53,25 +53,23 @@ export const MainView = () => {
         
     if (selectedMovie) {
       return (
-        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        <>
+          <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+          <div>
+            {selectedMovie.map(movie => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onMovieClick={() => {
+                  setSelectedMovie(movie);
+                }}
+              />
+            ))}
+          </div>
+        </>
       );
     }
-  
+    
     return (
       <MainView onSelectMovie={movie => setSelectedMovie(movie)} />
-    );
-  };
-
-    return (
-      <div>
-        {selectedMovie.map(movie => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            onMovieClick={() => {
-              setSelectedMovie(movie)
-            }}
-          />
-        ))}
-      </div>
     );
