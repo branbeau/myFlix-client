@@ -27359,9 +27359,9 @@ const MainView = ()=>{
             imagePath: "https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
         }
     ]);
-    const [selectedmovie, setSelectedmovie] = (0, _react.useState)(null);
-    if (selectedmovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-        movie: selectedmovie,
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
@@ -27384,16 +27384,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 70,
+                lineNumber: 71,
                 columnNumber: 11
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 68,
+        lineNumber: 69,
         columnNumber: 7
     }, undefined);
 };
-_s(MainView, "67eY7Z+KlHV1plYyRQB3u2jBMwA=");
+_s(MainView, "urPEL26yHriI+NGujzTy0iBBS6c=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
