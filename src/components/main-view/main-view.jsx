@@ -52,7 +52,7 @@ export const MainView = () => {
       },
     ]);
 
-  const [selectedmovie, setSelectedmovie] = useState(null);
+  const [selectedmovie, setSelectedMovie] = useState(null);
 
   if (selectedmovie) {
     return (
@@ -71,7 +71,7 @@ export const MainView = () => {
           key={movie.id}
           movie={movie}
           onMovieClick={() => {
-            setSelectedmovie(movie)
+            setSelectedMovie(movie)
           }}
           />
         ))}
