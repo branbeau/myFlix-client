@@ -62,7 +62,8 @@ export const MainView = () => {
     if (selectedMovie.length === 0) {
       return <div>The list is empty!</div>;
     }
-    
+    console.log(typeof selectedMovie);
+
     return (
       <div>
         {selectedMovie.map(movie => (
