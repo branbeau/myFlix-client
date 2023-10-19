@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-  const [selectedMovie, setSelectedMovie] = useState([
+  const [movies, setMovies] = useState([
     {
       id: 1,
-      title: "Coming to America",
-      description: "An extremely pampered African prince travels to Queens, New York, and goes undercover to find a wife that he can respect for her intelligence and strong will.",
-      genre:{
+        title: "Coming to America",
+        description: "An extremely pampered African prince travels to Queens, New York, and goes undercover to find a wife that he can respect for her intelligence and strong will.",
+        genre:{
           name: "Romantic Comedy",
           description: "A movie or play that deals with love in a light, humorous way."
         },
@@ -18,14 +19,14 @@ export const MainView = () => {
           birthYear: 1950
         },
          imagePath: "https://en.wikipedia.org/wiki/Coming_to_America#/media/File:ComingtoAmerica1988MoviePoster.jpg"
-    },
-    {
-      id: 2,
-      title: "Notebook",
-      description: "A poor yet passionate young man (Ryan Gosling) falls in love with a rich young woman (Rachel McAdams), giving her a sense of freedom, but they are soon separated because of their social differences.",
-      genre:{
-        name:"Romantic Drama",
-        description: "Romance films, romance movies, or ship films involve romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters."
+      },
+      {
+        id: 2,
+        title: "Notebook",
+        description: "A poor yet passionate young man (Ryan Gosling) falls in love with a rich young woman (Rachel McAdams), giving her a sense of freedom, but they are soon separated because of their social differences.",
+        genre:{
+          name:"Romantic Drama",
+          description: "Romance films, romance movies, or ship films involve romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters."
         },
         director:{
           name: "Nick Cassavetes",
@@ -33,14 +34,14 @@ export const MainView = () => {
           birthYear: 1959
         },
         imagePath: "https://www.imdb.com/title/tt0332280/mediaviewer/rm1153669376/?ref_=tt_ov_i"
-    },
-    {
-      id: 3,
-      title: "Titanic",
-      description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+      },
+      {
+        id: 3,
+        title: "Titanic",
+        description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
         genre:{
-        name: "Romanctic Drama",
-        description: "Romance films, romance movies, or ship films involve romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters."
+          name: "Romanctic Drama",
+          description: "Romance films, romance movies, or ship films involve romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters."
         },
         director:{
           name: "James Cameron",
@@ -49,26 +50,31 @@ export const MainView = () => {
         },
         imagePath:"https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
       },
-    ]
-  };
-  
-  if (selectedMovie) {
+    ]);
+
+  const [selectedmovie, setSelectedmovie] = useState(null);
+
+  if (selectedmovie) {
     return (
-      <>
-        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-        <div>
-          <MovieCard
-            key={selectedMovie.id}
-            movie={selectedMovie}
-            onMovieClick={() => {
-              setSelectedMovie(selectedMovie);
-            }}
-          />
-        </div>
-      </>
+      <MovieView movie={selectedmovie} onBackClick={() => setSelectedMovie(null)} />
     );
+  }
+
+  if (movies.length === 0) {
+    return <div>The list is empty!</div>;
   }
   
   return (
-    <MainView setSelectedMovie={movie => setSelectedMovie(movie)} />
-  );
+    <div>
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          movie={movie}
+          onMovieClick={() => {
+            setSelectedmovie(movie)
+          }}
+          />
+        ))}
+      </div>
+    );
+  }
