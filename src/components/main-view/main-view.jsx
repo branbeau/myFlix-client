@@ -72,4 +72,4 @@ if (selectedMovie) {
 
 return (
   <MainView onSelectMovie={movie => setSelectedMovie(movie)} />
-);
+)};
