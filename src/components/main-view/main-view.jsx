@@ -50,7 +50,7 @@ export const MainView = () => {
         imagePath:"https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
       }
     ]);
-
+        
     if (selectedMovie) {
       return (
         <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
@@ -61,8 +61,6 @@ export const MainView = () => {
       <MainView onSelectMovie={movie => setSelectedMovie(movie)} />
     );
   };
-
-    console.log(typeof selectedMovie);
 
     return (
       <div>
