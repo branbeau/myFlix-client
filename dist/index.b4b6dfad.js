@@ -27312,7 +27312,7 @@ var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [selectedMovie, setSelectedMovie] = (0, _react.useState)([
+    const [movies, setMovies] = (0, _react.useState)([
         {
             id: 1,
             title: "Coming to America",
@@ -27365,35 +27365,34 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 58,
-        columnNumber: 9
+        lineNumber: 59,
+        columnNumber: 7
     }, undefined);
-    if (selectedMovie.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 63,
-        columnNumber: 14
+        lineNumber: 64,
+        columnNumber: 12
     }, undefined);
-    console.log(typeof selectedMovie);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: selectedMovie.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                 movie: movie,
                 onMovieClick: ()=>{
                     setSelectedMovie(movie);
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 71,
-                columnNumber: 11
+                lineNumber: 70,
+                columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 69,
-        columnNumber: 7
+        lineNumber: 68,
+        columnNumber: 5
     }, undefined);
 };
-_s(MainView, "urPEL26yHriI+NGujzTy0iBBS6c=");
+_s(MainView, "wNilE0sX/NmHryXR8xemh5UYWYk=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
