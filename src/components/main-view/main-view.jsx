@@ -70,6 +70,26 @@ if (selectedMovie) {
   );
 }
 
+
+if (selectedMovie) {
+  return (
+    <>
+      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+      <div>
+        {selectedMovie.map(movie => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            onMovieClick={() => {
+              setSelectedMovie(movie);
+            }}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
+
 return (
-  <MainView onSelectMovie={movie => setSelectedMovie(movie)} />
-)};
+  <MainView setSelectedMovie={movie => setSelectedMovie(movie)} />
+);
