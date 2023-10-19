@@ -48,48 +48,27 @@ export const MainView = () => {
           birthYear: 1954
         },
         imagePath:"https://en.wikipedia.org/wiki/Titanic_(1997_film)#/media/File:Titanic_(1997_film)_poster.png"
-      }
-  ]);
-
-if (selectedMovie) {
-  return (
-    <>
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-      <div>
-        {selectedMovie.map(movie => (
+      },
+    ]
+  };
+  
+  if (selectedMovie) {
+    return (
+      <>
+        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        <div>
           <MovieCard
-            key={movie.id}
-            movie={movie}
+            key={selectedMovie.id}
+            movie={selectedMovie}
             onMovieClick={() => {
-              setSelectedMovie(movie);
+              setSelectedMovie(selectedMovie);
             }}
           />
-        ))}
-      </div>
-    </>
-  );
-}
-
-
-if (selectedMovie) {
+        </div>
+      </>
+    );
+  }
+  
   return (
-    <>
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-      <div>
-        {selectedMovie.map(movie => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            onMovieClick={() => {
-              setSelectedMovie(movie);
-            }}
-          />
-        ))}
-      </div>
-    </>
+    <MainView setSelectedMovie={movie => setSelectedMovie(movie)} />
   );
-}
-
-return (
-  <MainView setSelectedMovie={movie => setSelectedMovie(movie)} />
-);
