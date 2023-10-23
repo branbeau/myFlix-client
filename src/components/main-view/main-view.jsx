@@ -56,29 +56,26 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    fetch("C:\myFlixDB\exported_collections\movies.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const moviesFromApi = data.map((movie) => {
-          return {
-            id: movie.id,
-            title: movie.title,
-            description: movie.description,
-            genre: {
-              name: movie.genre.name,
-              description: movie.genre.description,
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
+      .then(res => res.json())
+      .then(result => {
+        const moviesFromApi = data.map((movie) => ({
+          id: movie.id,
+          title: movie.title,
+          description: movie.description,
+          genre: {
+            name: movie.genre.name,
+            description: movie.genre.description,
           },
-            director: {
-              name: movie.director.name,
-              bio: movie.director.bio,
-              birthYear: movie.director.birthYear
+          director: {
+            name: movie.director.name,
+            bio: movie.director.bio,
+            birthYear: movie.director.birthYear
           }
-        };
-      });
-
-      setMovies(moviesFromApi);
-    });
-}, []);
+        }));
+    
+        setMovies(moviesFromApi);
+      })
 
   if (selectedMovie) {
     return (
