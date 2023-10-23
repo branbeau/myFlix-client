@@ -12,24 +12,25 @@ export const MainView = () => {
   useEffect(() => {
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
       .then(res => res.json())
-      .then(result => {
+      .then(data => {
         const moviesFromApi = data.map((movie) => ({
-          id: movie.id,
-          title: movie.title,
-          description: movie.description,
+          id: movie._id,
+          title: movie.Title,
+          description: movie.Description,
           genre: {
-            name: movie.genre.name,
-            description: movie.genre.description,
+            name: movie.Genre.Name,
+            description: movie.Genre.Description,
           },
           director: {
-            name: movie.director.name,
-            bio: movie.director.bio,
-            birthYear: movie.director.birthYear
+            name: movie.Director.Name,
+            bio: movie.Director.Bio,
+            birthYear: movie.Director.BirthYear
           }
         }));
-    
+
         setMovies(moviesFromApi);
       })
+  },[])
 
   if (selectedMovie) {
     return (
@@ -54,4 +55,4 @@ export const MainView = () => {
         ))}
       </div>
     );
-  }
+}
