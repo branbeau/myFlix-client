@@ -6,13 +6,37 @@ import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
+  const [token, setToken] = useState(null);
+  export const MainView = () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+    const [user, setUser] = useState(storedUser? storedUser : null);
+    const [token, setToken] = useState(storedToken? storedToken : null);
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
-  const [selectedMovie, setSelectedMovie] = useState(null);
+    useEffect(() => {
+      if (!token) return;
+   
+      fetch("..../movies", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((response) => response.json())
+        .then((movies) => {
+          setMovies(movies);
+   
+        });
+    }, [token]);
+  
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies", {
+      headers: { Authorization: Bearer ${token} },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, [token]);
 
-  useEffect(() => {
-    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
-      .then(res => res.json())
-      .then(data => {
         const moviesFromApi = data.map((movie) => ({
           id: movie._id,
           title: movie.Title,
@@ -28,9 +52,9 @@ export const MainView = () => {
           }
         }));
 
-        setMovies(moviesFromApi);
-      })
-  },[])
+         setMovies(moviesFromApi);
+    });
+}, []);
 
   if (selectedMovie) {
     return (
@@ -41,7 +65,20 @@ export const MainView = () => {
   if (movies.length === 0) {
     return <div>The list is empty!</div>;
   }
-  
+
+  if (!user) {
+    return (
+      <>
+        <LoginView onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }} />
+        or
+        <SignupView />
+      </>
+    );
+  }
+
   return (
     <div>
       {movies.map((movie) => (
@@ -53,6 +90,7 @@ export const MainView = () => {
           }}
           />
         ))}
-      </div>
+      <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>      
+    </div>
     );
 }
