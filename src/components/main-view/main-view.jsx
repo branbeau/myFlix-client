@@ -49,12 +49,12 @@ export const MainView = () => {
           key={movie.id}
           movie={movie}
           onMovieClick={() => {
-            setSelectedMovie(movie)
+            setSelectedMovie(movie);
           }}
         />
       ))}
       <button onClick={() => {
-      setUser(null);
-    }}>Logout</button>
-  </div>
-);
+        setUser(null);
+      }}>Logout</button>
+    </div>
+  );
