@@ -5,6 +5,14 @@ export function LoginView(){
 const [Username, setUsername] = useState("")
 const [Password, setPassword] = useState("")
 
+const handleLogin = (event) => {
+  event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+  // Reset the username and password fields after login
+  setUsername('');
+  setPassword('');
+};
+
 fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
   method: "POST",
   headers: {
@@ -28,7 +36,7 @@ fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
   });
   
   }
-  
+   
   return (
     <form onSubmit={handleLogin}>
       <label>

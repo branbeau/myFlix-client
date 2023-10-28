@@ -27435,6 +27435,12 @@ function LoginView() {
     _s();
     const [Username, setUsername1] = (0, _react.useState)("");
     const [Password, setPassword1] = (0, _react.useState)("");
+    const handleLogin1 = (event)=>{
+        event.preventDefault(); // Prevent the form from submitting and refreshing the page
+        // Reset the username and password fields after login
+        setUsername1("");
+        setPassword1("");
+    };
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
         method: "POST",
         headers: {
@@ -27471,18 +27477,18 @@ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 36,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 34,
+            lineNumber: 42,
             columnNumber: 7
         }, undefined),
         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 43,
+            lineNumber: 51,
             columnNumber: 7
         }, undefined),
         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -27495,18 +27501,18 @@ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                     required: true
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 46,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 44,
+            lineNumber: 52,
             columnNumber: 7
         }, undefined),
         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 53,
+            lineNumber: 61,
             columnNumber: 7
         }, undefined),
         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27514,13 +27520,13 @@ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
             children: "Login"
         }, void 0, false, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 54,
+            lineNumber: 62,
             columnNumber: 7
         }, undefined)
     ]
 }, void 0, true, {
     fileName: "src/components/login-view/login-view.jsx",
-    lineNumber: 33,
+    lineNumber: 41,
     columnNumber: 5
 }, undefined);
 
