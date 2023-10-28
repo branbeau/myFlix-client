@@ -4,7 +4,9 @@ export function LoginView({ onLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
       headers: {
@@ -29,7 +31,7 @@ export function LoginView({ onLoggedIn }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLogin}>
       <label>
         Username:
         <input
@@ -39,6 +41,7 @@ export function LoginView({ onLoggedIn }) {
           required
         />
       </label>
+      <br />
       <label>
         Password:
         <input
@@ -48,7 +51,8 @@ export function LoginView({ onLoggedIn }) {
           required
         />
       </label>
-      <button type="submit">Submit</button>
+      <br />
+      <button type="submit">Login</button>
     </form>
   );
-};
+}
