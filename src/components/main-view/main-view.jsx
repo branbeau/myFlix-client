@@ -37,7 +37,7 @@ export const MainView = () => {
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
     );
   }
-
+  
   if (movies.length === 0) {
     return <div>The list is empty!</div>;
   }
@@ -48,13 +48,17 @@ export const MainView = () => {
         <MovieCard
           key={movie.id}
           movie={movie}
-          onMovieClick={() => {
-            setSelectedMovie(movie);
+          onMovieClick={(newSelectedMovie) => {
+            setSelectedMovie(newSelectedMovie);
           }}
         />
       ))}
-      <button onClick={() => {
-        setUser(null);
-      }}>Logout</button>
+      <button
+        onClick={() => {
+          setUser(null);
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
