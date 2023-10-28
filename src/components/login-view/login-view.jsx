@@ -56,3 +56,5 @@ export function LoginView({ onLoggedIn }) {
     </form>
   );
 }
+
+export {LoginView};
