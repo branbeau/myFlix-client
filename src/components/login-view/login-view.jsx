@@ -22,13 +22,14 @@ fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
     } else {
       alert("No such user");
     }
+  })
   .catch((e) => {
     alert("Something went wrong");
   });
-
-}
-
-return (
+  
+  }
+  
+  return (
     <form onSubmit={handleLogin}>
       <label>
         Username:
@@ -53,4 +54,3 @@ return (
       <button type="submit">Login</button>
     </form>
   );
-}
