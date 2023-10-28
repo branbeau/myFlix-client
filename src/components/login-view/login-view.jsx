@@ -1,40 +1,32 @@
-import {useState} from 'react'
+import React, { useState } from 'react';
 
-export function LoginView(){
+export function LoginView() {
 
-const [Username, setUsername] = useState("")
-const [Password, setPassword] = useState("")
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-const handleLogin = (event) => {
-  event.preventDefault(); // Prevent the form from submitting and refreshing the page
-
-  // Reset the username and password fields after login
-  setUsername('');
-  setPassword('');
-};
-
-fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({Username, Password})
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Login response: ", data);
-    if (data.user) {
-      localStorage.setItem("user", JSON.stringify(data.user));
-      localStorage.setItem("token", data.token);
-      onLoggedIn(data.user, data.token);
-    } else {
-      alert("No such user");
-    }
-  })
-  .catch((e) => {
-    alert("Something went wrong");
-  });
-  
+  const handleLogin = () => {
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username, password })
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Login response: ", data);
+        if (data.user) {
+          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("token", data.token);
+          onLoggedIn(data.user, data.token);
+        } else {
+          alert("No such user");
+        }
+      })
+      .catch((e) => {
+        alert("Something went wrong");
+      });
   }
    
   return (
