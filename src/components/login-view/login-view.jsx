@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import {useState} from 'react'
 
-export function LoginView({ onLoggedIn }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export function LoginView(){
 
-  const handleLogin = (event) => {
-    event.preventDefault();
+const [Username, setUsername] = useState("")
+const [Password, setPassword] = useState("")
 
-    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ username, password })
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Login response: ", data);
-        if (data.user) {
-          localStorage.setItem("user", JSON.stringify(data.user));
-          localStorage.setItem("token", data.token);
-          onLoggedIn(data.user, data.token);
-        } else {
-          alert("No such user");
-        }
-      })
-      .catch(() => {
-        alert("Something went wrong");
-      });
-  };
+fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({Username, Password})
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Login response: ", data);
+    if (data.user) {
+      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("token", data.token);
+      onLoggedIn(data.user, data.token);
+    } else {
+      alert("No such user");
+    }
+  .catch((e) => {
+    alert("Something went wrong");
+  });
 
-  return (
+}
+
+return (
     <form onSubmit={handleLogin}>
       <label>
         Username:
@@ -56,5 +54,3 @@ export function LoginView({ onLoggedIn }) {
     </form>
   );
 }
-
-export {LoginView};
