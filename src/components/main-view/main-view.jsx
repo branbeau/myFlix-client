@@ -41,6 +41,19 @@ export const MainView = () => {
     return <div>The list is empty!</div>;
   }
   
+  if (!user) {
+    return (
+      <>
+        <LoginView onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }} />
+        or
+        <SignupView />
+      </>
+    );
+  }
+  
   return (
     <div>
       {movies.map((movie) => (
