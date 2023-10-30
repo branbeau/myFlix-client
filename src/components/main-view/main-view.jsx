@@ -9,6 +9,18 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
 
+  const LoginView = ({ onLoggedIn }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+      const user = authenticateUser(username, password);
+      const token = generateToken(user);
+
+      // Call onLoggedIn function with user and token
+      onLoggedIn(user, token);
+    };
+
   useEffect(() => {
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
       .then(res => res.json())
@@ -55,23 +67,38 @@ export const MainView = () => {
     return <div>The list is empty!</div>;
   }
   
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-      <button
-        onClick={() => {
-          setUser(null);
-        }}
-      >
-        Logout
-      </button>
-    </div>
-  );
+    return (
+      <div>
+        <form>
+          <label>Username</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+  
+          <label>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+  
+          <button type="button" onClick={handleLogin}>Login</button>
+        </form>
+  
+        <div>
+          {movies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }}
+            />
+          ))}
+          <button
+            onClick={() => {
+              setUser(null);
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    );
+  };
+  
+  export default MainView;
