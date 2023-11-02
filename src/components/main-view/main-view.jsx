@@ -29,7 +29,7 @@ export const MainView = () => {
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify({ Username: 167OLdP5BUfLZGxP, Password: K39eKYhPMV9DDWhJ})
+    body: JSON.stringify({ Username: username, Password: password})
 })
     .then((response) => response.json())
     .then((data) => {
