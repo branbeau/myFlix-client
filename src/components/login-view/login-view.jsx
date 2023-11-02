@@ -5,15 +5,15 @@ export const LoginView = ({ onLoggedIn }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-  const username = username;
+    const loginUsername = username;
 
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ Username: username, Password: password })
-    })
+      body: JSON.stringify({ Username: loginUsername, Password: password })
+    })    
       .then((response) => response.json())
       .then((data) => {
         console.log("Login response: ", data);
@@ -29,6 +29,7 @@ export const LoginView = ({ onLoggedIn }) => {
         alert("Something went wrong");
       });
   };
+};
 
   return (
     <div>
