@@ -5,31 +5,32 @@ export const LoginView = ({ onLoggedIn }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const loginUsername = username;
-
+    // Send a login request to the API with the entered username and password
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ Username: loginUsername, Password: password }) 
+      body: JSON.stringify({ Username: username, Password: password }) 
     })    
       .then((response) => response.json())
       .then((data) => {
         console.log("Login response: ", data);
-        if (data.user) {
+        if (data.success) {
+          // Store user and token in  localStorage
           localStorage.setItem("user", JSON.stringify(data.user));
           localStorage.setItem("token", data.token);
+          // Pass user and token to the onLoggedIn callback function
           onLoggedIn(data.user, data.token);
         } else {
-          alert("No such user");
+          alert("No such user or wrong password");
         }
       })
       .catch((e) => {
+        console.error(e);
         alert("Something went wrong");
       });
   };
-};
 
   return (
     <div>
