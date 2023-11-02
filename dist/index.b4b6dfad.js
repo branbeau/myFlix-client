@@ -28436,8 +28436,8 @@ const LoginView = ({ onLoggedIn })=>{
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username,
-                password
+                Username: username,
+                Password: password
             })
         }).then((response)=>response.json()).then((data)=>{
             console.log("Login response: ", data);
