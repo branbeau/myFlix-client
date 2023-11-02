@@ -5,6 +5,8 @@ export const LoginView = ({ onLoggedIn }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+  const username = username;
+
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
       headers: {
