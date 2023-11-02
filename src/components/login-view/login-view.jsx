@@ -4,7 +4,7 @@ export function LoginView() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  export const LoginView = ({ onLoggedIn }) => {
+export const LoginView = ({ onLoggedIn }) => {
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
       headers: {
