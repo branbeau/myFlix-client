@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from 'react';
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
@@ -10,9 +10,11 @@ export const MainView = () => {
   const [user, setUser] = useState(null);
 
   const authenticateUser = (username, password) => {
+    // Your authentication logic goes here
   };
 
   const generateToken = (user) => {
+    // Your token generation logic goes here
   };
 
   const handleLogin = () => {
@@ -22,119 +24,28 @@ export const MainView = () => {
     onLoggedIn(user, token);
   };
 
-    setUser(import { useState, useEffect } from "react";
-import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
-import { LoginView } from "../login-view/login-view";
-import SignupView from "../signup-view/signup-view";
-
-export const MainView = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-
-  const authenticateUser = (username, password) => {
-  };
-
-  const generateToken = (user) => {
-  };
-
-  const handleLogin = () => {
-    const user = authenticateUser(username, password);
-    const token = generateToken(user);
-
-    onLoggedIn(user, token);
-  };
-
-    setUser(import { useState, useEffect } from "react";
-import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
-import { LoginView } from "../login-view/login-view";
-import SignupView from "../signup-view/signup-view";
-
-export const MainView = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-
-  const authenticateUser = (username, password) => {
-  };
-
-  const generateToken = (user) => {
-  };
-
-  const handleLogin = () => {
-    const user = authenticateUser(username, password);
-    const token = generateToken(user);
-
-    onLoggedIn(user, token);
-  };
-
-    setUser(AuthenticatedUser);
-    // Save the token to local storage or use it as needed
-
-    // Reset the username and password fields
-    setUsername('');
-    setPassword('');
-  };
-
-  const LoginView = ({ onLoggedIn }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [movies, setMovies] = useState([]);
-      
-   useEffect(() => {);
-    // Save the token to local storage or use it as needed
-
-    // Reset the username and password fields
-    setUsername('');
-    setPassword('');
-  };
-
-  const LoginView = ({ onLoggedIn }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [movies, setMovies] = useState([]);
-      
-   useEffect(() => {);
-    // Save the token to local storage or use it as needed
-
-    // Reset the username and password fields
-    setUsername('');
-    setPassword('');
-  };
-
-  const LoginView = ({ onLoggedIn }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [movies, setMovies] = useState([]);
-      
-   useEffect(() => {
-      fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
-        .then(res => res.json())
-        .then(data => {
-          const moviesFromApi = data.map((movie) => ({
-            id: movie._id,
-            title: movie.Title,
-            description: movie.Description,
-            genre: {
-              name: movie.Genre.Name,
-              description: movie.Genre.Description,
-            },
-            director: {
-              name: movie.Director.Name,
-              bio: movie.Director.Bio,
-              birthYear: movie.Director.BirthYear
-            }
-          }));
+  fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({Username, Password})
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Login response: ", data);
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.token);
+        onLoggedIn(data.user, data.token);
+      } else {
+        alert("No such user");
+      }
+    .catch((e) => {
+      alert("Something went wrong");
+    });
   
-          setMovies(moviesFromApi);
-        })
-        .catch(error => {
-          console.log("Error:", error);
-        });
-    }, []);
-  
+  }
 
   if (!user) {
     return (
@@ -161,6 +72,12 @@ export const MainView = () => {
   
   return (
     <div>
+      {/* Render the MovieView component */}
+      { selectedMovie ? <MovieView movie={selectedMovie} /> : null }
+  
+      {/* Render the SignupView component */}
+      { user === null ? <SignupView /> : null }
+  
       <form>
         <label>Username</label>
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
