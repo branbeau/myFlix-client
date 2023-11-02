@@ -28426,33 +28426,36 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
-function LoginView() {
+const LoginView = ({ onLoggedIn })=>{
     _s();
-    const [username, setUsername] = (0, _react.useState)("");
-    const [password, setPassword] = (0, _react.useState)("");
-    const handleLogin = ()=>{
-        fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username,
-                password
-            })
-        }).then((response)=>response.json()).then((data)=>{
-            console.log("Login response: ", data);
-            if (data.user) {
-                localStorage.setItem("user", JSON.stringify(data.user));
-                localStorage.setItem("token", data.token);
-                onLoggedIn(data.user, data.token);
-            } else alert("No such user");
-        }).catch((e)=>{
-            alert("Something went wrong");
-        });
-    };
-    const onLoggedIn = (user, token)=>{};
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+    const [username1, setUsername1] = (0, _react.useState)("");
+    const [password1, setPassword1] = (0, _react.useState)("");
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: username1,
+            password: password1
+        })
+    }).then((response)=>response.json()).then((data)=>{
+        console.log("Login response: ", data);
+        if (data.user) {
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("token", data.token);
+            onLoggedIn(data.user, data.token);
+        } else alert("No such user");
+    }).catch((e)=>{
+        alert("Something went wrong");
+    });
+};
+_s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
+_c = LoginView;
+const onLoggedIn = (user, token)=>{};
+var _c;
+return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         onSubmit: handleLogin,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28465,20 +28468,20 @@ function LoginView() {
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 39,
-                        columnNumber: 9
-                    }, this)
+                        lineNumber: 38,
+                        columnNumber: 11
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 37,
-                columnNumber: 7
-            }, this),
+                lineNumber: 36,
+                columnNumber: 9
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 46,
-                columnNumber: 7
-            }, this),
+                lineNumber: 45,
+                columnNumber: 9
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: [
                     "Password:",
@@ -28489,39 +28492,39 @@ function LoginView() {
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 49,
-                        columnNumber: 9
-                    }, this)
+                        lineNumber: 48,
+                        columnNumber: 11
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 47,
-                columnNumber: 7
-            }, this),
+                lineNumber: 46,
+                columnNumber: 9
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 56,
-                columnNumber: 7
-            }, this),
+                lineNumber: 55,
+                columnNumber: 9
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 type: "submit",
                 children: "Login"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 57,
-                columnNumber: 7
-            }, this)
+                lineNumber: 56,
+                columnNumber: 9
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 36,
-        columnNumber: 5
-    }, this);
-}
-_s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
-_c = LoginView;
-var _c;
-$RefreshReg$(_c, "LoginView");
+        lineNumber: 35,
+        columnNumber: 7
+    }, undefined)
+}, void 0, false, {
+    fileName: "src/components/login-view/login-view.jsx",
+    lineNumber: 34,
+    columnNumber: 5
+}, undefined);
 
   $parcel$ReactRefreshHelpers$9fee.postlude(module);
 } finally {
