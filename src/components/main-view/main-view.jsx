@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
-import SignupView from "../signup-view/signup-view";
+import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const authenticateUser = (username, password) => {
     // Your authentication logic goes here
@@ -23,29 +25,29 @@ export const MainView = () => {
 
     onLoggedIn(user, token);
   };
-
-  fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ Username: username, Password: password})
-})
-    .then((response) => response.json())
-    .then((data) => {
-        console.log("Login response: ", data);
-        if (data.user) {
-            localStorage.setItem("user", JSON.stringify(data.user));
-            localStorage.setItem("token", data.token);
-            onLoggedIn(data.user, data.token);
-        } else {
-            alert("No such user");
-        }
-    })
-    .catch((e) => {
-        alert("Something went wrong");
-    });
-
+  
+  useEffect(() => {
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
+      .then(res => res.json())
+      .then(data => {
+        const moviesFromApi = data.map((movie) => ({
+          id: movie._id,
+          title: movie.Title,
+          description: movie.Description,
+          genre: {
+            name: movie.Genre.Name,
+            description: movie.Genre.Description,
+          },
+          director: {
+            name: movie.Director.Name,
+            bio: movie.Director.Bio,
+            birthYear: movie.Director.BirthYear
+          }
+        }));
+        setMovies(moviesFromApi);
+      })
+  },[])
+     
   if (!user) {
     return (
       <>
