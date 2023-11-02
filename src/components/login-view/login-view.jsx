@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
 export function LoginView() {
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  export const LoginView = ({ onLoggedIn }) => {
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
       headers: {
@@ -33,6 +32,21 @@ export function LoginView() {
   }
 
   return (
+    <div>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
+}
     <form onSubmit={handleLogin}>
       <label>
         Username:
