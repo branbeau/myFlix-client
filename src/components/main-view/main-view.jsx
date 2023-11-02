@@ -12,9 +12,9 @@ export const MainView = () => {
   const [password, setPassword] = useState("");
 
 export const LoginView = ({ onLoggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  
   const authenticateUser = (username, password) => {
     // Your authentication logic goes here
   };
