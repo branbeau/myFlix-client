@@ -12,7 +12,7 @@ export const LoginView = ({ onLoggedIn }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ Username: loginUsername, Password: password })
+      body: JSON.stringify({ Username: loginUsername, Password: password }) 
     })    
       .then((response) => response.json())
       .then((data) => {
