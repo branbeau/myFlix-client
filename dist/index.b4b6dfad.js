@@ -26519,13 +26519,13 @@ if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fr
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
             lineNumber: 41,
-            columnNumber: 9
+            columnNumber: 7
         }, undefined),
         "or",
         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
             lineNumber: 48,
-            columnNumber: 9
+            columnNumber: 7
         }, undefined)
     ]
 }, void 0, true);
@@ -26535,14 +26535,14 @@ if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieVie
 }, void 0, false, {
     fileName: "src/components/main-view/main-view.jsx",
     lineNumber: 55,
-    columnNumber: 7
+    columnNumber: 5
 }, undefined);
 if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
     children: "The list is empty!"
 }, void 0, false, {
     fileName: "src/components/main-view/main-view.jsx",
     lineNumber: 60,
-    columnNumber: 12
+    columnNumber: 10
 }, undefined);
 var _c, _c1;
 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -26554,12 +26554,12 @@ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         }, movie.id, false, {
             fileName: "src/components/main-view/main-view.jsx",
             lineNumber: 66,
-            columnNumber: 9
+            columnNumber: 7
         }, undefined))
 }, void 0, false, {
     fileName: "src/components/main-view/main-view.jsx",
     lineNumber: 64,
-    columnNumber: 5
+    columnNumber: 3
 }, undefined);
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
