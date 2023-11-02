@@ -9,40 +9,132 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
 
+  const authenticateUser = (username, password) => {
+  };
+
+  const generateToken = (user) => {
+  };
+
+  const handleLogin = () => {
+    const user = authenticateUser(username, password);
+    const token = generateToken(user);
+
+    onLoggedIn(user, token);
+  };
+
+    setUser(import { useState, useEffect } from "react";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import SignupView from "../signup-view/signup-view";
+
+export const MainView = () => {
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
+
+  const authenticateUser = (username, password) => {
+  };
+
+  const generateToken = (user) => {
+  };
+
+  const handleLogin = () => {
+    const user = authenticateUser(username, password);
+    const token = generateToken(user);
+
+    onLoggedIn(user, token);
+  };
+
+    setUser(import { useState, useEffect } from "react";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import SignupView from "../signup-view/signup-view";
+
+export const MainView = () => {
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
+
+  const authenticateUser = (username, password) => {
+  };
+
+  const generateToken = (user) => {
+  };
+
+  const handleLogin = () => {
+    const user = authenticateUser(username, password);
+    const token = generateToken(user);
+
+    onLoggedIn(user, token);
+  };
+
+    setUser(AuthenticatedUser);
+    // Save the token to local storage or use it as needed
+
+    // Reset the username and password fields
+    setUsername('');
+    setPassword('');
+  };
+
   const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [movies, setMovies] = useState([]);
+      
+   useEffect(() => {);
+    // Save the token to local storage or use it as needed
 
-    const handleLogin = () => {
-      const user = authenticateUser(username, password);
-      const token = generateToken(user);
+    // Reset the username and password fields
+    setUsername('');
+    setPassword('');
+  };
 
-      // Call onLoggedIn function with user and token
-      onLoggedIn(user, token);
-    };
+  const LoginView = ({ onLoggedIn }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [movies, setMovies] = useState([]);
+      
+   useEffect(() => {);
+    // Save the token to local storage or use it as needed
 
-  useEffect(() => {
-    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
-      .then(res => res.json())
-      .then(data => {
-        const moviesFromApi = data.map((movie) => ({
-          id: movie._id,
-          title: movie.Title,
-          description: movie.Description,
-          genre: {
-            name: movie.Genre.Name,
-            description: movie.Genre.Description,
-          },
-          director: {
-            name: movie.Director.Name,
-            bio: movie.Director.Bio,
-            birthYear: movie.Director.BirthYear
-          }
-        }));
+    // Reset the username and password fields
+    setUsername('');
+    setPassword('');
+  };
 
-        setMovies(moviesFromApi);
-      })
-  },[])
+  const LoginView = ({ onLoggedIn }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [movies, setMovies] = useState([]);
+      
+   useEffect(() => {
+      fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
+        .then(res => res.json())
+        .then(data => {
+          const moviesFromApi = data.map((movie) => ({
+            id: movie._id,
+            title: movie.Title,
+            description: movie.Description,
+            genre: {
+              name: movie.Genre.Name,
+              description: movie.Genre.Description,
+            },
+            director: {
+              name: movie.Director.Name,
+              bio: movie.Director.Bio,
+              birthYear: movie.Director.BirthYear
+            }
+          }));
+  
+          setMovies(moviesFromApi);
+        })
+        .catch(error => {
+          console.log("Error:", error);
+        });
+    }, []);
+  
 
   if (!user) {
     return (

@@ -28,7 +28,10 @@ export function LoginView() {
         alert("Something went wrong");
       });
   }
-   
+
+  const onLoggedIn = (user, token) => {
+  }
+
   return (
     <form onSubmit={handleLogin}>
       <label>
@@ -53,4 +56,5 @@ export function LoginView() {
       <br />
       <button type="submit">Login</button>
     </form>
-  );
+ );
+}
