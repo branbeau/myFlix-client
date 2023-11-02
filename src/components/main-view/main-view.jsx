@@ -109,4 +109,4 @@ export const MainView = () => {
         Logout
       </button>
     </div>
-  );
+  )};
