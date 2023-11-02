@@ -1,32 +1,5 @@
 {
-  "name": "myflix-client",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "command-to-start-your-app",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/branbeau/myFlix-client.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/branbeau/myFlix-client/issues"
-  },
-  "homepage": "https://github.com/branbeau/myFlix-client#readme",
-  "description": "",
-  "dependencies": {
-    "@babel/preset-env": "^7.23.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/preset-react": "^7.22.15",
-    "@parcel/transformer-sass": "^2.9.3",
-    "process": "^0.11.10",
-    "prop-types": "^15.8.1"
-
+    "@parcel/transformer-sass": "^2.9.3"
   }
 }
