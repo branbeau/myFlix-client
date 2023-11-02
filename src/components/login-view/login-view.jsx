@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
 
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/login", {
       method: "POST",
@@ -25,10 +26,7 @@ export const LoginView = ({ onLoggedIn }) => {
       .catch((e) => {
         alert("Something went wrong");
       });
-  }
-
-  const onLoggedIn = (user, token) => {
-  }
+  };
 
   return (
     <div>
@@ -57,3 +55,4 @@ export const LoginView = ({ onLoggedIn }) => {
       </form>
     </div>
   );
+};
