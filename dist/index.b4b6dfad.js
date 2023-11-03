@@ -27323,22 +27323,14 @@ var _signupView = require("../signup-view/signup-view");
 var _s = $RefreshSig$(), _s1 = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies, setMovies1] = (0, _react.useState)([]);
-    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    const [movies1, setMovies1] = (0, _react.useState)([]);
+    const [selectedMovie1, setSelectedMovie1] = (0, _react.useState)(null);
     const [user1, setUser1] = (0, _react.useState)(null);
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
 };
 _s(MainView, "7JKd2AhO77JWjjs98ZEZdFRClcI=");
 _c = MainView;
-const LoginView = ({ onLoggedIn })=>{
-    _s1();
-    const [loginUsername, setLoginUsername] = (0, _react.useState)("");
-    const [loginPassword, setLoginPassword] = (0, _react.useState)("");
-    const [movies, setMovies1] = (0, _react.useState)([]);
-};
-_s1((0, _loginView.LoginView), "Rvz4JWvdL0U8ULGPXYgIwQxcS2A=");
-_c1 = (0, _loginView.LoginView);
 (0, _react.useEffect)(()=>{
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies").then((res)=>res.json()).then((data)=>{
         const moviesFromApi = data.map((movie)=>({
@@ -27353,32 +27345,66 @@ _c1 = (0, _loginView.LoginView);
         setMovies(moviesFromApi);
     });
 });
-if (!user) {
-    var movie, newSelectedMovie;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-                onLoggedIn: (user1, token)=>{
-                    setUser(user1);
-                    setToken(token);
-                }
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 41,
-                columnNumber: 7
-            }, undefined),
-            "or",
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 48,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true);
-}
+const LoginView = ({ onLoggedIn })=>{
+    _s1();
+    const [loginUsername, setLoginUsername] = (0, _react.useState)("");
+    const [loginPassword, setLoginPassword] = (0, _react.useState)("");
+    const [movies1, setMovies1] = (0, _react.useState)([]);
+};
+_s1((0, _loginView.LoginView), "Rvz4JWvdL0U8ULGPXYgIwQxcS2A=");
+_c1 = (0, _loginView.LoginView);
+if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+    children: [
+        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+            onLoggedIn: (user1, token)=>{
+                setUser(user1);
+                setToken(token);
+            }
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 41,
+            columnNumber: 7
+        }, undefined),
+        "or",
+        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 48,
+            columnNumber: 7
+        }, undefined)
+    ]
+}, void 0, true);
+if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+    movie: selectedMovie,
+    onBackClick: ()=>setSelectedMovie(null)
+}, void 0, false, {
+    fileName: "src/components/main-view/main-view.jsx",
+    lineNumber: 55,
+    columnNumber: 7
+}, undefined);
+if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    children: "The list is empty!"
+}, void 0, false, {
+    fileName: "src/components/main-view/main-view.jsx",
+    lineNumber: 60,
+    columnNumber: 12
+}, undefined);
 var _c, _c1;
-$RefreshReg$(_c, "MainView");
-$RefreshReg$(_c1, "LoginView");
+return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+            movie: movie,
+            onMovieClick: (newSelectedMovie)=>{
+                setSelectedMovie(newSelectedMovie);
+            }
+        }, movie.id, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 66,
+            columnNumber: 9
+        }, undefined))
+}, void 0, false, {
+    fileName: "src/components/main-view/main-view.jsx",
+    lineNumber: 64,
+    columnNumber: 5
+}, undefined);
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {

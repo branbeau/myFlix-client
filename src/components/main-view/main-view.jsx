@@ -12,12 +12,6 @@ export const MainView = () => {
   const [password, setPassword] = useState("");
 }
 
-export const LoginView = ({ onLoggedIn }) => {
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [movies, setMovies] = useState([]); 
-}
-
 useEffect(() => {
   fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
     .then(res => res.json())
@@ -35,6 +29,12 @@ useEffect(() => {
     });
 });
 
+export const LoginView = ({ onLoggedIn }) => {
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [movies, setMovies] = useState([]); 
+}
+
 if (!user) {
   return (
     <>
@@ -48,7 +48,8 @@ if (!user) {
       <SignupView />
     </>
   );
-  
+}
+
   if (selectedMovie) {
     return (
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
@@ -72,4 +73,3 @@ if (!user) {
       ))}
     </div>
   );
-};
