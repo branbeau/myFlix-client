@@ -27323,7 +27323,7 @@ var _signupView = require("../signup-view/signup-view");
 var _s = $RefreshSig$(), _s1 = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies1, setMovies1] = (0, _react.useState)([]);
+    const [movies, setMovies1] = (0, _react.useState)([]);
     const [selectedMovie1, setSelectedMovie1] = (0, _react.useState)(null);
     const [user1, setUser1] = (0, _react.useState)(null);
     const [username, setUsername] = (0, _react.useState)("");
@@ -27343,13 +27343,46 @@ _c = MainView;
                 }
             }));
         setMovies(moviesFromApi);
+    }).catch((error)=>{
+        console.error(error);
     });
-});
+}, []);
 const LoginView = ({ onLoggedIn })=>{
     _s1();
     const [loginUsername, setLoginUsername] = (0, _react.useState)("");
     const [loginPassword, setLoginPassword] = (0, _react.useState)("");
-    const [movies1, setMovies1] = (0, _react.useState)([]);
+    const [movies, setMovies1] = (0, _react.useState)([]);
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "The list is empty!"
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 41,
+        columnNumber: 12
+    }, undefined);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 46,
+        columnNumber: 7
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
+                }
+            }, movie.id, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 53,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 51,
+        columnNumber: 5
+    }, undefined);
 };
 _s1((0, _loginView.LoginView), "Rvz4JWvdL0U8ULGPXYgIwQxcS2A=");
 _c1 = (0, _loginView.LoginView);
@@ -27362,49 +27395,20 @@ if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fr
             }
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 41,
+            lineNumber: 68,
             columnNumber: 7
         }, undefined),
         "or",
         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 48,
+            lineNumber: 75,
             columnNumber: 7
         }, undefined)
     ]
 }, void 0, true);
-if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-    movie: selectedMovie,
-    onBackClick: ()=>setSelectedMovie(null)
-}, void 0, false, {
-    fileName: "src/components/main-view/main-view.jsx",
-    lineNumber: 55,
-    columnNumber: 7
-}, undefined);
-if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-    children: "The list is empty!"
-}, void 0, false, {
-    fileName: "src/components/main-view/main-view.jsx",
-    lineNumber: 60,
-    columnNumber: 12
-}, undefined);
 var _c, _c1;
-return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-    children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-            movie: movie,
-            onMovieClick: (newSelectedMovie)=>{
-                setSelectedMovie(newSelectedMovie);
-            }
-        }, movie.id, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 66,
-            columnNumber: 9
-        }, undefined))
-}, void 0, false, {
-    fileName: "src/components/main-view/main-view.jsx",
-    lineNumber: 64,
-    columnNumber: 5
-}, undefined);
+$RefreshReg$(_c, "MainView");
+$RefreshReg$(_c1, "LoginView");
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {

@@ -12,27 +12,54 @@ export const MainView = () => {
   const [password, setPassword] = useState("");
 }
 
-useEffect(() => {
-  fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
-    .then(res => res.json())
-    .then(data => {
-      const moviesFromApi = data.map((movie) => ({
-        id: movie._id,
-        title: movie.Title,
-        description: movie.Description,
-        genre: {
-          name: movie.Genre.Name,
-          description: movie.Genre.Description,
-        }
-      }));
-      setMovies(moviesFromApi);
-    });
-});
+  useEffect(() => {
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
+      .then(res => res.json())
+      .then(data => {
+        const moviesFromApi = data.map((movie) => ({
+          id: movie._id,
+          title: movie.Title,
+          description: movie.Description,
+          genre: {
+            name: movie.Genre.Name,
+            description: movie.Genre.Description,
+          }
+        }));
+        setMovies(moviesFromApi);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
 export const LoginView = ({ onLoggedIn }) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [movies, setMovies] = useState([]); 
+  const [movies, setMovies] = useState([]);
+
+  if (movies.length === 0) {
+    return <div>The list is empty!</div>;
+  }
+
+  if (selectedMovie) {
+    return (
+      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+    );
+  }
+
+  return (
+    <div>
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          movie={movie}
+          onMovieClick={(newSelectedMovie) => {
+            setSelectedMovie(newSelectedMovie);
+          }}
+        />
+      ))}
+    </div>
+  );
 }
 
 if (!user) {
@@ -49,27 +76,3 @@ if (!user) {
     </>
   );
 }
-
-  if (selectedMovie) {
-    return (
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-    );
-  }
-  
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-  
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-    </div>
-  );
