@@ -1,6 +1,7 @@
+import {useState} from 'react'
 export const LoginView = ({ onLoggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [Username, setUsername] = useState("");
+  const [Uassword, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -11,12 +12,12 @@ export const LoginView = ({ onLoggedIn }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ Username: username, Password: password }) 
+      body: JSON.stringify({ Username, Password }) 
     })    
       .then((response) => response.json())
       .then((data) => {
         console.log("Login response: ", data);
-        if (data.success) {
+        if (data) {
           // Store user and token in  localStorage
           localStorage.setItem("user", JSON.stringify(data.user));
           localStorage.setItem("token", data.token);
@@ -39,7 +40,7 @@ export const LoginView = ({ onLoggedIn }) => {
           Username:
           <input
             type="text"
-            value={username}
+            value={Username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
@@ -49,7 +50,7 @@ export const LoginView = ({ onLoggedIn }) => {
           Password:
           <input
             type="password"
-            value={password}
+            value={Password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
