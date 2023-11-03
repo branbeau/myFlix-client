@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from "react-dom";
-import { MainView } from "./components/main-view/main-view.js";
+import { MainView } from "./components/main-view/main-view";
 
 import "./index.scss";
 
