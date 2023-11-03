@@ -48,18 +48,17 @@ if (!user) {
       <SignupView />
     </>
   );
-}
-
-if (selectedMovie) {
-  return (
-    <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-  );
-}
-
+  
+  if (selectedMovie) {
+    return (
+      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+    );
+  }
+  
   if (movies.length === 0) {
     return <div>The list is empty!</div>;
   }
-
+  
   return (
     <div>
       {movies.map((movie) => (
@@ -67,9 +66,10 @@ if (selectedMovie) {
           key={movie.id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
-            newSelectedMovie(newSelectedMovie);
+            setSelectedMovie(newSelectedMovie);
           }}
         />
       ))}
     </div>
   );
+};
