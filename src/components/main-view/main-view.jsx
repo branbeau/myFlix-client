@@ -34,7 +34,7 @@ useEffect(() => {
       setMovies(moviesFromApi);
     });
 });
-  
+
 if (!user) {
   return (
     <>
@@ -56,20 +56,20 @@ if (selectedMovie) {
   );
 }
 
-if (movies.length === 0) {
-  return <div>The list is empty!</div>;
-}
+  if (movies.length === 0) {
+    return <div>The list is empty!</div>;
+  }
 
-return (
-  <div>
-    {movies.map((movie) => (
-      <MovieCard
-        key={movie.id}
-        movie={movie}
-        onMovieClick={(newSelectedMovie) => {
-          setSelectedMovie(newSelectedMovie);
-        }}
-      />
-    ))}
-  </div>
-);
+  return (
+    <div>
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          movie={movie}
+          onMovieClick={(newSelectedMovie) => {
+            newSelectedMovie(newSelectedMovie);
+          }}
+        />
+      ))}
+    </div>
+  );
