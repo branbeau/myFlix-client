@@ -8,9 +8,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-}
+  const [token, setToken] = useState(null)
 
   useEffect(() => {
     fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
@@ -23,6 +21,11 @@ export const MainView = () => {
           genre: {
             name: movie.Genre.Name,
             description: movie.Genre.Description,
+          },
+          director:{
+            name: movie.Director.Name,
+            bio: movie.Director.Bio,
+            birthYear: movie.Director.BirthYear,
           }
         }));
         setMovies(moviesFromApi);
@@ -32,10 +35,20 @@ export const MainView = () => {
       });
   }, []);
 
-export const LoginView = ({ onLoggedIn }) => {
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [movies, setMovies] = useState([]);
+if (!user) {
+  return (
+    <>
+    <LoginView
+      onLoggedIn={(user, token) => {
+      setUser(user);
+      setToken(token);
+    }}
+    />
+    or
+    <SignupView />
+    </>
+    );
+}
 
   if (movies.length === 0) {
     return <div>The list is empty!</div>;
@@ -59,20 +72,5 @@ export const LoginView = ({ onLoggedIn }) => {
         />
       ))}
     </div>
-  );
-}
-
-if (!user) {
-  return (
-    <>
-      <LoginView
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-      />
-      or
-      <SignupView />
-    </>
   );
 }
