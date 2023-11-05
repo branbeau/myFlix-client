@@ -6861,7 +6861,7 @@ var _s = $RefreshSig$();
 const LoginView = ({ onLoggedIn })=>{
     _s();
     const [Username, setUsername] = (0, _react.useState)("");
-    const [Uassword, setPassword] = (0, _react.useState)("");
+    const [Password, setPassword] = (0, _react.useState)("");
     const handleLogin = (e)=>{
         e.preventDefault();
         // Send a login request to the API with the entered username and password
@@ -6960,7 +6960,7 @@ const LoginView = ({ onLoggedIn })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(LoginView, "cpOvJHBM8PiPt0AkcCKoL4KU1IQ=");
+_s(LoginView, "zwhuZmCCK0HUnKqyyFT720C/Kmw=");
 _c = LoginView;
 var _c;
 $RefreshReg$(_c, "LoginView");

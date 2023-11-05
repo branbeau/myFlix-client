@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 export const LoginView = ({ onLoggedIn }) => {
   const [Username, setUsername] = useState("");
-  const [Uassword, setPassword] = useState("");
+  const [Password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
