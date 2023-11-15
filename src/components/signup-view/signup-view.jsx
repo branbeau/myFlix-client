@@ -1,21 +1,36 @@
-export const SignupView = () => {
-
-  const handleSubmit = (event) => {};
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
-    </form>
-  );
-};import{ useState } from "react";
+import React, { useState } from "react";
 
 export const SignupView = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [Username, setUsername] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Birthday, setBirthday] = useState("");
 
-  const handleSubmit = (event) => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/users", {
+      method: "POST",
+      body: JSON.stringify({
+        Username,
+        Password,
+        Email,
+        Birthday
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert("Signup successful");
+        window.location.reload();
+      } else {
+        alert("Signup failed");
+      }
+    }).catch(e => {
+      console.log(e)
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -23,7 +38,7 @@ export const SignupView = () => {
         Username:
         <input
           type="text"
-          value={username}
+          value={Username}
           onChange={(e) => setUsername(e.target.value)}
           required
           minLength="3"
@@ -33,7 +48,7 @@ export const SignupView = () => {
         Password:
         <input
           type="password"
-          value={password}
+          value={Password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
@@ -42,7 +57,7 @@ export const SignupView = () => {
         Email:
         <input
           type="email"
-          value={email}
+          value={Email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
@@ -51,7 +66,7 @@ export const SignupView = () => {
         Birthday:
         <input
           type="date"
-          value={birthday}
+          value={Birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
         />
