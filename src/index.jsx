@@ -4,7 +4,11 @@ import { MainView } from "./components/main-view/main-view";
 
 import "./index.scss";
 
+<<<<<<< Updated upstream
 const MyFlixApplication = () => {
+=======
+function MyFlixApplication (){
+>>>>>>> Stashed changes
   return <MainView />;
 };
 
