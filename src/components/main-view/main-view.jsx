@@ -3,7 +3,6 @@ import React from 'react';
 import { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-<<<<<<< Updated upstream
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
@@ -38,21 +37,6 @@ export const MainView = () => {
       });
   }, [token]);
 
-=======
-import { LoginView } from "../login-view/login-view";
-import { SignupView } from "../signup-view/signup-view";
-
-export const MainView = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null)
-
-  useEffect(() => {
-    fetch("https://myflixapp-56b818d4e5ca.herokuapp.com/movies")
-      .then(res => res.json())
-      .then(data => {
->>>>>>> Stashed changes
         const moviesFromApi = data.map((movie) => ({
           id: movie._id,
           title: movie.Title,
@@ -67,7 +51,6 @@ export const MainView = () => {
             birthYear: movie.Director.BirthYear
           }
         }));
-<<<<<<< Updated upstream
 
          setMovies(moviesFromApi);
     });
@@ -76,27 +59,6 @@ export const MainView = () => {
   if (selectedMovie) {
     return (
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-=======
-        setMovies(moviesFromApi);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
-if (!user) {
-  return (
-    <>
-    <LoginView
-      onLoggedIn={(user, token) => {
-      setUser(user);
-      setToken(token);
-    }}
-    />
-    or
-    <SignupView />
-    </>
->>>>>>> Stashed changes
     );
 }
 
@@ -104,7 +66,6 @@ if (!user) {
     return <div>The list is empty!</div>;
   }
 
-<<<<<<< Updated upstream
   if (!user) {
     return (
       <>
@@ -115,11 +76,9 @@ if (!user) {
         or
         <SignupView />
       </>
-=======
   if (selectedMovie) {
     return (
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
->>>>>>> Stashed changes
     );
   }
 
@@ -129,7 +88,6 @@ if (!user) {
         <MovieCard
           key={movie.id}
           movie={movie}
-<<<<<<< Updated upstream
           onMovieClick={() => {
             setSelectedMovie(movie)
           }}
@@ -139,7 +97,6 @@ if (!user) {
     </div>
     );
 }
-=======
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
           }}
@@ -148,4 +105,3 @@ if (!user) {
     </div>
   );
 }
->>>>>>> Stashed changes
